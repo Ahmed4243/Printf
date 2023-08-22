@@ -34,14 +34,12 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && format[2] == '\0')
 		return (-1);
+	if (format[0] == '\0')
+		return (0);
 	for (n = 0; n < length; n++)
 	{
 		if (format[n] == '%' && format[n + 1] == 's')
-		{
-			char *value = va_arg(args, char *);
-
-			printf_str(value, &n, &count);
-		}
+			printf_str(va_arg(args, char *), &n, &count);
 		else if (format[n] == '%' && format[n + 1] == 'c')
 			printf_char(va_arg(args, int), &n, &count);
 		else if (format[n] == '%' && format[n + 1] == '%')
