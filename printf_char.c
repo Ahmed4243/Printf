@@ -11,7 +11,7 @@
 void printf_char(char c, int *pCount, int *pLen)
 {
 	_putchar(c);
-	(*pCount) += 2;
+	(*pCount)++;
 	(*pLen)++;
 }
 
