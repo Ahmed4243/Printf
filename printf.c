@@ -25,9 +25,7 @@ int size(const char *format)
 
 int _printf(const char *format, ...)
 {
-	int n;
-	int length = size(format);
-	int count = 0;
+	int n, count = 0, length = size(format);
 
 	va_list args;
 
@@ -35,6 +33,8 @@ int _printf(const char *format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	if ((format[0] == '%' && format[1] == ' ' && !format[2]) || format[0] == '\0')
+		return (-1);
+	if (format[0] == '%' && format[1] != ('s' || 'c' || '%'))
 		return (-1);
 	for (n = 0; n < length; n++)
 	{
