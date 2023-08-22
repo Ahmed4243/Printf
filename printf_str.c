@@ -13,15 +13,7 @@ void printf_str(char *s, int *pCount, int *pLen)
 	int i;
 
 	if (s == NULL)
-	{
-		_putchar('(');
-		_putchar('n');
-		_putchar('u');
-		_putchar('l');
-		_putchar('l');
-		_putchar(')');
-		(*pLen) += 6;
-	}
+		s = "(null)";
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		_putchar(s[i]);
