@@ -32,7 +32,7 @@ int _strlen(char *s)
 void printf_string(char *str, int *pCount, int *plen)
 {
 	if (str == NULL)
-		s = "(null)";
+		str = "(null)";
 	write(1, str, _strlen(str));
 	*pCount += 2;
 	*plen += _strlen(str);

@@ -18,10 +18,15 @@ int _printf(const char *format, ...)
 	for (count = 0, len = 0; format[count] != '\0'; count++)
 	{
 		if (format[count] == '%' && format[count + 1] == 'c')
-			printf_char(va_arg(args, char), &count);
+			printf_char(va_arg(args, int), &count);
 		else if (format[count] == '%' && format[count + 1] == 's')
 			printf_string(va_arg(args, char*), &count, &len);
-		write(1, format[count], 1);
+		else if (format[count] == '%' && format[count + 1] == '%')
+		{
+			write(1, "%", 1);
+			count += 2;
+		}
+		write(1, &format[count], 1);
 		len++;
 	}
 	va_end(args);

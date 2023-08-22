@@ -9,6 +9,6 @@
 
 void printf_char(char c, int *pCount)
 {
-	write(1, c, 1);
-	*pcount += 2;
+	write(1, &c, 1);
+	*pCount += 2;
 }
