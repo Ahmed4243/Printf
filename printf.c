@@ -17,6 +17,8 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
+	if (format[0] == '%' && format[1] != ('s' || '%' || 'c'))
+		return (-1);
 	for (count = 0, len = 0; format[count] != '\0'; count++)
 	{
 		if (format[count] == '%' && format[count + 1] == 'c')
@@ -31,8 +33,8 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-		write(1, &format[count], 1);
-		len++;
+			write(1, &format[count], 1);
+			len++;
 		}
 	}
 	va_end(args);
