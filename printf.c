@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count, len, *pCount = &count, *plen = &len;
+	int count, len;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -18,12 +18,12 @@ int _printf(const char *format, ...)
 	for (count = 0, len = 0; format[count] != '\0'; count++)
 	{
 		if (format[count] == '%' && format[count + 1] == 'c')
-			printf_char(va_arg(format, char), pCount)
+			printf_char(va_arg(args, char), &count);
 		else if (format[count] == '%' && format[count + 1] == 's')
-			printf_string(va_arg(format, char*), pCount, plen)
+			printf_string(va_arg(args, char*), &count, &len);
 		write(1, format[count], 1);
 		len++;
 	}
 	va_end(args);
-	return (length);
+	return (len);
 }

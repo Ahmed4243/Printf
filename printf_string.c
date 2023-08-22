@@ -31,10 +31,10 @@ int _strlen(char *s)
 
 void printf_string(char *str, int *pCount, int *plen)
 {
-	if (s == NULL)
+	if (str == NULL)
 		s = "(null)";
 	write(1, str, _strlen(str));
-	*count += 2;
+	*pCount += 2;
 	*plen += _strlen(str);
 }
 
