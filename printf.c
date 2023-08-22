@@ -48,6 +48,8 @@ int _printf(const char *format, ...)
 			printf_char(va_arg(args, int), &n, &count);
 		else if (format[n] == '%' && format[n + 1] == '%')
 			printf_char('%', &n, &count);
+		else if (format[n] == '%' && format[n + 1] == '\0')
+			return (-1);
 		else if (format[n] == '%' && format[n + 1] != ('s' || 'c' || '%'))
 		{
 			_putchar(format[n]);
