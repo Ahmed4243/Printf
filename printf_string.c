@@ -7,7 +7,7 @@
  * Return: the length of the string
  */
 
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int i;
 
@@ -31,7 +31,7 @@ int _strlen(char *s)
 
 void printf_string(char *str, int *pCount, int *plen)
 {
-	int i;
+	int i, len = _strlen(str);
 
 	if (str == NULL)
 		str = "(null)";

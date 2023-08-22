@@ -1,6 +1,27 @@
 #include "main.h"
 
 /**
+ * len - returns the length of a string
+ * @s: string to evaluate
+ *
+ * Return: the length of the string
+ */
+
+int len(const char *s)
+{
+	int i;
+
+	i = 0;
+
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+
+	return (i);
+}
+
+/**
   *  _printf - My implementation of the printf function
   * @format: The string it receives
   *
@@ -10,12 +31,15 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count, len;
+	int count, len, size;
 
 	va_start(args, format);
+	size = _strlen(format);
+	if (size <= 0)
+		return (0);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
+	if ((format[0] == '%' && format[1] == ' ' && !format[2]) || format[0] == '\0')
 		return (-1);
 	if (format[0] == '%' && format[1] != ('s' || '%' || 'c'))
 		return (-1);
