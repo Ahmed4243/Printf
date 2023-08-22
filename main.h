@@ -8,8 +8,8 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...);
-void printf_char(char c, int *pCount, int *plen);
-void printf_string(char *str, int *pCount, int *plen);
+void printf_char(char c);
+int printf_string(char *str);
 int _strlen(const char *s);
 int _putchar(char c);
 
