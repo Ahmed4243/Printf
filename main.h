@@ -8,6 +8,8 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...);
+int printf_str(char * s);
+void printf_char(char c, int *pCount, int *pLen);
 int size(const char *s);
 int _putchar(char c);
 

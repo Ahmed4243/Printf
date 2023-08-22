@@ -41,25 +41,15 @@ int _printf(const char *format, ...)
 		if (format[n] == '%' && format[n + 1] == 's')
 		{
 			char *value = va_arg(args, char *);
+			int len = printf_str(value);
 
-			count += size(value);
+			count += len;
 			n++;
-			write(STDOUT_FILENO, value, size(value));
 		}
 		else if (format[n] == '%' && format[n + 1] == 'c')
-		{
-			int value = va_arg(args, int);
-
-			count++;
-			n++;
-			write(STDOUT_FILENO, &value, 1);
-		}
+			printf_char(va_arg(args, int), &n, &count);
 		else if (format[n] == '%' && format[n + 1] == '%')
-		{
-			count++;
-			n++;
-			write(STDOUT_FILENO, "%", 1);
-		}
+			printf_char('%', &n, &count);
 		else
 		{
 			count++;
