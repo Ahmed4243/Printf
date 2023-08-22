@@ -10,12 +10,22 @@
 
 void printf_str(char *s, int *pCount, int *pLen)
 {
+	int i;
+
 	if (s == NULL)
-		s = "(null)";
-	if (size(s) > 0)
 	{
-		write(STDOUT_FILENO, s, size(s));
-		(*pLen) += size(s);
+		_putchar('(');
+		_putchar('n');
+		_putchar('u');
+		_putchar('l');
+		_putchar('l');
+		_putchar(')');
+		(*pLen) += 6;
+	}
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		_putchar(s[i]);
+		(*pLen)++;
 	}
 	(*pCount)++;
 }
