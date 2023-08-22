@@ -10,7 +10,8 @@
 int _printf(const char *format, ...);
 void printf_char(char c);
 int printf_string(char *str);
+int sizee(const char *s);
 int _strlen(const char *s);
 int _putchar(char c);
 
-#endif
+#endif /* MAIN_H */
