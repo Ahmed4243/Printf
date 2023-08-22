@@ -31,9 +31,17 @@ int _strlen(char *s)
 
 void printf_string(char *str, int *pCount, int *plen)
 {
+	int i, len;
+
 	if (str == NULL)
+	{
 		str = "(null)";
-	write(1, str, _strlen(str));
+		len = _strlen(str);
+		for (i = 0; i < len; i++)
+			_putchar(str[i]);
+	}
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
 	*pCount += 2;
 	*plen += _strlen(str);
 }

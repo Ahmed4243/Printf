@@ -11,5 +11,6 @@ int _printf(const char *format, ...);
 void printf_char(char c, int *pCount);
 void printf_string(char *str, int *pCount, int *plen);
 int _strlen(char *s);
+int _putchar(char c);
 
 #endif
