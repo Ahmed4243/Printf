@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	if ((format[0] == '%' && format[1] == ' ' && !format[2]) || format[0] == '\0')
+	if (format[0] == '%' && format[1] == ' ')
 		return (-1);
 	for (n = 0; n < length; n++)
 	{
@@ -50,9 +50,10 @@ int _printf(const char *format, ...)
 			printf_char('%', &n, &count);
 		else if (format[n] == '%' && format[n + 1] != ('s' || 'c' || '%'))
 		{
-			printf_char(format[n], &n, &count);
-			write(STDOUT_FILENO, &format[n], 1);
-			return (2);
+			_putchar(format[n]);
+			_putchar(format[n + 1]);
+			n++;
+			count += 2;
 		}
 		else
 		{
