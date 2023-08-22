@@ -25,7 +25,7 @@ int size(const char *format)
 
 int _printf(const char *format, ...)
 {
-	int n, count = 0, length = size(format);
+	int n, count = 0;
 
 	va_list args;
 
@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (format[0] == '\0')
 		return (0);
-	for (n = 0; n < length; n++)
+	for (n = 0; format[n] != '\0'; n++)
 	{
 		if (format[n] == '%' && format[n + 1] == 's')
 			printf_str(va_arg(args, char *), &n, &count);
