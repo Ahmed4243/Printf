@@ -34,13 +34,8 @@ int _printf(const char *format, ...)
 		return (-1);
 	if ((format[0] == '%' && format[1] == ' ' && !format[2]) || format[0] == '\0')
 		return (-1);
-	if (format[0] == '%' && format[1] != ('s' || 'c' || '%'))
-	{
-		printf_char(format[0], &n, &count);
-		printf_char(format[1], &n, &count);
+	if ((format[0] == '%') && (format[1] != ('s' || 'c' || '%')))
 		return (2);
-	}
-
 	for (n = 0; n < length; n++)
 	{
 		if (format[n] == '%' && format[n + 1] == 's')
