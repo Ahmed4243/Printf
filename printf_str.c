@@ -13,19 +13,11 @@ void printf_str(char *s, int *pCount, int *pLen)
 	int i;
 
 	if (s == NULL)
-	{
 		s = "(null)";
-		for (i = 0; s[i] != '\0'; i++)
-			_putchar(s[i]);
-		(*pLen) += 6;
-	}
-	else
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (i = 0; s[i] != '\0'; i++)
-		{
 			_putchar(s[i]);
 			(*pLen)++;
-		}
 	}
 	(*pCount)++;
 }
