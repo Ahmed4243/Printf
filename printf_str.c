@@ -16,8 +16,8 @@ void printf_str(char *s, int *pCount, int *pLen)
 		s = "(null)";
 	for (i = 0; s[i] != '\0'; i++)
 	{
-			_putchar(s[i]);
-			(*pLen)++;
+		_putchar(s[i]);
+		(*pLen)++;
 	}
 	(*pCount)++;
 }
