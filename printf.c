@@ -50,9 +50,8 @@ int _printf(const char *format, ...)
 			printf_char('%', &n, &count);
 		else if (format[n] == '%' && format[n + 1] != ('s' || 'c' || '%'))
 		{
+			printf_char(format[n], &n, &count);
 			write(STDOUT_FILENO, &format[n], 1);
-			count++;
-			n++;
 		}
 		else
 		{
