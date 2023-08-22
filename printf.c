@@ -43,6 +43,7 @@ int _printf(const char *format, ...)
 			char *value = va_arg(args, char *);
 
 			count += size(value);
+			n++;
 			write(STDOUT_FILENO, value, size(value));
 		}
 		else if (format[n] == '%' && format[n + 1] == 'c')
@@ -50,11 +51,13 @@ int _printf(const char *format, ...)
 			int value = va_arg(args, int);
 
 			count++;
+			n++;
 			write(STDOUT_FILENO, &value, 1);
 		}
 		else if (format[n] == '%' && format[n + 1] == '%')
 		{
 			count++;
+			n++;
 			write(STDOUT_FILENO, "%", 1);
 		}
 		else
