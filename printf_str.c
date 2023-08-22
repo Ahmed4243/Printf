@@ -12,7 +12,10 @@ void printf_str(char *s, int *pCount, int *pLen)
 {
 	if (s == NULL)
 		s = "(null)";
-	write(STDOUT_FILENO, s, size(s));
+	if (size(s) > 0)
+	{
+		write(STDOUT_FILENO, s, size(s));
+		(*pLen) += size(s);
+	}
 	(*pCount)++;
-	(*pLen) += size(s);
 }
