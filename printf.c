@@ -39,23 +39,22 @@ int _printf(const char *format, ...)
 		if (format[n] == '%' && format[n + 1] == 's')
 		{
 			char *value = va_arg(args, char *);
-			int len = printf_str(value);
 
-			count += len;
-			n++;
+			printf_str(value, &n, &count);
 		}
 		else if (format[n] == '%' && format[n + 1] == 'c')
 			printf_char(va_arg(args, int), &n, &count);
 		else if (format[n] == '%' && format[n + 1] == '%')
 			printf_char('%', &n, &count);
+		else if (format[n] == '%' && format[n + 1] == '\0')
+			return (-1);
 		else if (format[n] == '%' && (format[n + 1] != 's' && format[n + 1] != 'c'))
 		{
 			if (format[n] == '%' && (format[n + 1] != '%'))
 			{
+				printf_char(format[n], &n, &count);
 				_putchar(format[n]);
-				_putchar(format[n + 1]);
-				n++;
-				count += 2;
+				count++;
 			}
 		}
 		else
