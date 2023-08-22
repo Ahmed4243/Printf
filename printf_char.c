@@ -3,8 +3,7 @@
 /**
   * printf_char - Prints a character
   * @c: The character
-  * @pCount: pointer to character count
-	* @plen: pointer to the length
+  *
   * Return: void
   */
 

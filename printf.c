@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * len - returns the length of a string
+ * _strlen - returns the length of a string
  * @s: string to evaluate
  *
  * Return: the length of the string
@@ -53,7 +53,7 @@ int _printf(const char *format, ...)
 			size = printf_string(va_arg(args, char *));
 			len += size;
 			count++;
-		}			
+		}
 		else if (format[count] == '%' && format[count + 1] == '%')
 		{
 			write(STDOUT_FILENO, "%", 1);
