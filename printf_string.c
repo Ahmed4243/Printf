@@ -31,7 +31,7 @@ int _strlen(char *s)
 
 void printf_string(char *str, int *pCount, int *plen)
 {
-	int i, len;
+	int i;
 
 	if (str == NULL)
 		str = "(null)";
