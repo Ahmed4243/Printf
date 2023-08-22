@@ -61,5 +61,6 @@ int _printf(const char *format, ...)
 			write(STDOUT_FILENO, &format[n], 1);
 		}
 	}
+	va_end(args);
 	return (count);
 }
