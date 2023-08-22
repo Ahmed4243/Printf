@@ -52,6 +52,7 @@ int _printf(const char *format, ...)
 		{
 			printf_char(format[n], &n, &count);
 			write(STDOUT_FILENO, &format[n], 1);
+			return (2);
 		}
 		else
 		{
