@@ -22,11 +22,11 @@ int _strlen(char *s)
 }
 
 /**
-	* printf_string - Prints a string
- 	* @str: The character
-	* @pCount: Pointer to character count
-	* @plen: Pointer to the overall length
- 	* Return: void
+  * printf_string - Prints a string
+  * @str: The character
+  * @pCount: Pointer to character count
+  * @plen: Pointer to the overall length
+  * Return: void
   */
 
 void printf_string(char *str, int *pCount, int *plen)
@@ -37,3 +37,4 @@ void printf_string(char *str, int *pCount, int *plen)
 	*count += 2;
 	*plen += _strlen(str);
 }
+

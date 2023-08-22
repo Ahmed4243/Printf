@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
-	* _printf - My implementation of the printf function
- 	* @format: The string it receives
-	*
- 	* Return: Length or -1
+  *  _printf - My implementation of the printf function
+  * @format: The string it receives
+  *
+  * Return: Length or -1
   */
 
 int _printf(const char *format, ...)
@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1)
+		return (-1);
 	for (count = 0, len = 0; format[count] != '\0'; count++)
 	{
 		if (format[count] == '%' && format[count + 1] == 'c')
@@ -25,5 +25,5 @@ int _printf(const char *format, ...)
 		len++;
 	}
 	va_end(args);
-	return (length)
+	return (length);
 }
