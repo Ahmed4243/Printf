@@ -34,8 +34,6 @@ int _printf(const char *format, ...)
 		return (-1);
 	if ((format[0] == '%' && format[1] == ' ' && !format[2]) || format[0] == '\0')
 		return (-1);
-	if ((format[0] == '%') && (format[1] != ('s' || 'c' || '%')))
-		return (2);
 	for (n = 0; n < length; n++)
 	{
 		if (format[n] == '%' && format[n + 1] == 's')
@@ -50,6 +48,12 @@ int _printf(const char *format, ...)
 			printf_char(va_arg(args, int), &n, &count);
 		else if (format[n] == '%' && format[n + 1] == '%')
 			printf_char('%', &n, &count);
+		else if (format[n] == '%' && format[n + 1] != ('s' || 'c' || '%'))
+		{
+			write(STDOUT_FILENO, &format[n], 1);
+			count++;
+			n++;
+		}
 		else
 		{
 			count++;
