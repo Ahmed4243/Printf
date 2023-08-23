@@ -34,8 +34,6 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && format[2] == '\0')
 		return (-1);
-	if (format[0] == '\0')
-		return (0);
 	for (n = 0; format[n] != '\0'; n++)
 	{
 		if (format[n] == '%' && format[n + 1] == 's')
@@ -46,9 +44,11 @@ int _printf(const char *format, ...)
 			printf_char('%', &n, &count);
 		else if (format[n] == '%' && format[n + 1] == '\0')
 			return (-1);
+		else if (format[n] == '%' && (format[n + 1] == 'd' || format[n + 1] == 'i'))
+			printf_num(va_arg(args, int), &n, &count);
 		else if (format[n] == '%' && (format[n + 1] != 's' && format[n + 1] != 'c'))
 		{
-			if (format[n] == '%' && (format[n + 1] != '%'))
+			if (format[n] == '%' && (format[n + 1] != '%' && format[n + 1] != 'd'))
 			{
 				printf_char(format[n], &n, &count);
 				_putchar(format[n]);
