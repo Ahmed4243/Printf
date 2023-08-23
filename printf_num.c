@@ -63,7 +63,7 @@ void printf_num(int n, int *pCount, int *pLen)
 			n /= 10;
 		}
 		str[i] = '\0';
-		reverse_string(str);
+		reverse_str(str);
 	}
 	(*pCount)++;
 	(*pLen)++;
