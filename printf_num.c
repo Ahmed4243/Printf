@@ -24,11 +24,10 @@ void printf_num(int n, int *pCount, int *pLen)
 		(*pLen)++;
 		return;
 	}
-	do 	
-	{
+	do {
 		str[i++] = '0' + (n % 10);
 		n /= 10;
-	} while (n != 0);
+	} while (n > 0);
 	while (i > 0)
 		_putchar(str[i - 1]);
 	(*pCount)++;

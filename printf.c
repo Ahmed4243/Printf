@@ -65,9 +65,9 @@ int _printf(const char *format, ...)
 			printf_num(va_arg(args, int), &n, &count);
 		else if (checker(format[n], format[n + 1]) == 1)
 		{
-				printf_char(format[n], &n, &count);
-				_putchar(format[n]);
-				count++;
+			printf_char(format[n], &n, &count);
+			_putchar(format[n]);
+			count++;
 		}
 		else
 		{
