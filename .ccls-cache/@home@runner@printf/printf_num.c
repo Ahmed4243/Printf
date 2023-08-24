@@ -14,6 +14,7 @@ void printf_num(int n, int *pCount, int *pLen)
 	if (n < 0)
 	{
 		_putchar('-');
+		(*pLen)++;
 		sign = -1;
 	}
 	if (n == 0)
@@ -25,7 +26,7 @@ void printf_num(int n, int *pCount, int *pLen)
 	}
 	while (i > 0)
   {
-		putchar(str[i - 1]);
+		_putchar(str[i - 1]);
 		i--;
 	}
 	(*pCount)++;
