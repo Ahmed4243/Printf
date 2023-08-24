@@ -9,28 +9,27 @@
 
 void printf_num(int n, int *pCount, int *pLen)
 {
-	char str[20];
-	int i = 0;
+	char str[12];
+	int i = 0, sign = 1;
 
 	if (n < 0)
 	{
 		_putchar('-');
 		(*pLen)++;
-		n = -n;
+		sign = -1;
 	}
 	if (n == 0)
-	{
 		_putchar('0');
-		(*pLen)++;
-		return;
-	}
-	do 	
+	while (n != 0)
 	{
-		str[i++] = '0' + (n % 10);
+		str[i++] = '0' + (n % 10) * sign;
 		n /= 10;
-	} while (n != 0);
+	}
 	while (i > 0)
+	{
 		_putchar(str[i - 1]);
+		i--;
+	}
 	(*pCount)++;
 	(*pLen) += size(str);
 }
