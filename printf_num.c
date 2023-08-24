@@ -14,17 +14,11 @@ void printf_num(int n, int *pCount, int *pLen)
 
 	if (n < 0)
 	{
-		_putchar('-');
-		(*pLen)++;
+		printf_char('-', pCount, pLen);
 		sign = -1;
 	}
 	if (n == 0)
-		_putchar('0');
-	if (n == INT_MIN) /* check if the number is INT_MIN */
-	{
-		_putchar('2');
-		n = 147483648; /* change the number to the positive part of INT_MIN */
-	}
+		printf_char('0', pCount, pLen);
 	while (n != 0)
 	{
 		str[i++] = '0' + (n % 10) * sign;
@@ -32,9 +26,7 @@ void printf_num(int n, int *pCount, int *pLen)
 	}
 	while (i > 0)
 	{
-		_putchar(str[i - 1]);
+		printf_char(str[i - 1], pCount, pLen);
 		i--;
 	}
-	(*pCount)++;
-	(*pLen) += size(str);
 }
