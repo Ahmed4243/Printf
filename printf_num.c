@@ -9,7 +9,7 @@
 
 void printf_num(int n, int *pCount, int *pLen)
 {
-	char buffer[1024];
+	char str[1024];
 	int i = 0, sign = 1;
 
 	if (n < 0)
@@ -25,15 +25,15 @@ void printf_num(int n, int *pCount, int *pLen)
 	}
 	while (n != 0)
 	{
-		buffer[i++] = '0' + (n % 10) * sign;
+		str[i++] = '0' + (n % 10) * sign;
 		n /= 10;
 	}
-	buffer[i] = '\0';
+	str[i] = '\0';
 	while (i > 0)
 	{
-		buffer(str[i - 1]);
+		_putchar(str[i - 1]);
 		i--;
 	}
 	(*pCount)++;
-	(*pLen) += size(buffer);
+	(*pLen) += size(str);
 }
