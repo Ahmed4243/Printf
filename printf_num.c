@@ -20,6 +20,11 @@ void printf_num(int n, int *pCount, int *pLen)
 	}
 	if (n == 0)
 		_putchar('0');
+	if (n == INT_MIN) /* check if the number is INT_MIN */
+	{
+		_putchar('2');
+		n = 147483648; /* change the number to the positive part of INT_MIN */
+	}
 	while (n != 0)
 	{
 		str[i++] = '0' + (n % 10) * sign;
