@@ -19,6 +19,7 @@ int size(const char *format)
 /**
  * checker - Checks for unknown specifier
  * @c1: The first character
+ *
  * @c2: The second character
  * Return: 0 or 1
  */
