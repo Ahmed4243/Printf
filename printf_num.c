@@ -19,11 +19,9 @@ void printf_num(int n, int *pCount, int *pLen)
 		sign = -1;
 	}
 	if (n == 0)
-		_putchar('0');
-	if (n == INT_MIN) /* check if the number is INT_MIN */
 	{
-		_putchar('2');
-		n = 147483648; /* change the number to the positive part of INT_MIN */
+		_putchar('0');
+		(*pLen)++;
 	}
 	while (n != 0)
 	{
