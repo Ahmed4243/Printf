@@ -17,6 +17,23 @@ int size(const char *format)
 }
 
 /**
+ * checker - Checks for unknown specifier
+ * @c1: The first character
+ * @c2: The second character
+ * Return: 0 or 1
+ */
+
+int checker(char c1, char c2)
+{
+	if (c1 == '%' && (c2 != 's' && c2 != 'c' && c2 != '%'))
+	{
+		if (c1 == '%' && c2 != 'd' && c2 != 'i')
+			return (1);
+	}
+	return (0);
+}
+
+/**
  * _printf - prints formated text
  * @format: the text it recieves
  * Description: bla bla bla
@@ -46,14 +63,11 @@ int _printf(const char *format, ...)
 			return (-1);
 		else if (format[n] == '%' && (format[n + 1] == 'd' || format[n + 1] == 'i'))
 			printf_num(va_arg(args, int), &n, &count);
-		else if (format[n] == '%' && (format[n + 1] != 's' && format[n + 1] != 'c'))
+		else if (checker(format[n], format[n + 1]) == 1)
 		{
-			if (format[n] == '%' && (format[n + 1] != '%' && format[n + 1] != 'd'))
-			{
 				printf_char(format[n], &n, &count);
 				_putchar(format[n]);
 				count++;
-			}
 		}
 		else
 		{

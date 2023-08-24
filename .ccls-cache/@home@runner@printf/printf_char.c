@@ -3,12 +3,15 @@
 /**
   * printf_char - Prints a character
   * @c: The character
-  * @pCount: pointer to character count
-	* @plen: pointer to the length
+  * @pCount: Pointer to count
+  * @pLen: Pointer to length
   * Return: void
   */
 
-void printf_char(char c)
+void printf_char(char c, int *pCount, int *pLen)
 {
 	_putchar(c);
+	(*pCount)++;
+	(*pLen)++;
 }
+
