@@ -51,7 +51,8 @@ int _printf(const char *format, ...)
 			if (format[n] == '%' && (format[n + 1] != '%' && format[n + 1] != 'd'))
 			{
 				printf_char(format[n], &n, &count);
-				printf_char(format[n], &n, &count);
+				putchar(format[n]);
+				count++;
 			}
 		}
 		else

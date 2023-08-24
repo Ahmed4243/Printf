@@ -14,11 +14,15 @@ void printf_num(int n, int *pCount, int *pLen)
 
 	if (n < 0)
 	{
-		printf_char('-', pCount, pLen);
+		_putchar('-');
+		(*pLen)++;
 		sign = -1;
 	}
 	if (n == 0)
-		printf_char('0', pCount, pLen);
+	{
+		_putchar('0');
+		(*pLen)++;
+	}
 	while (n != 0)
 	{
 		str[i++] = '0' + (n % 10) * sign;
@@ -26,7 +30,9 @@ void printf_num(int n, int *pCount, int *pLen)
 	}
 	while (i > 0)
 	{
-		printf_char(str[i - 1], pCount, pLen);
+		_putchar(str[i - 1]);
 		i--;
 	}
+	(*pCount)++;
+	(*pLen) += size(str);
 }
