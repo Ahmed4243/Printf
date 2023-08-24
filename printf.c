@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 			printf_num(va_arg(args, int), &n, &count);
 		else if (format[n] == '%' && (format[n + 1] != 's' && format[n + 1] != 'c'))
 		{
-			if (format[n] == '%' && (format[n + 1] != '%' && format[n + 1] != 'd'))
+			if (format[n] == '%' && (format[n + 1] != 'i' && format[n + 1] != 'd'))
 			{
 				printf_char(format[n], &n, &count);
 				_putchar(format[n]);
