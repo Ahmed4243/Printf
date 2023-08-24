@@ -9,8 +9,10 @@
 
 void printf_num(int n, int *pCount, int *pLen)
 {
-	char str[1024];
+	char *str;
 	int i = 0, sign = 1;
+
+	str = (char *)malloc(sizeof(char) * 1024);
 
 	if (n < 0)
 	{
@@ -36,5 +38,5 @@ void printf_num(int n, int *pCount, int *pLen)
 	}
 	(*pCount)++;
 	(*pLen) += size(str);
-	fflush(stdout);
+	free(str);
 }
