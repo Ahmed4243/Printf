@@ -5,24 +5,25 @@
   * @n: The number
   * @pCount: The pointer count
   * @pLen: The pointer length
+  * @buffer: The buffer
+  * @index: The index
   */
 
-void printf_num(int n, int *pCount, int *pLen)
+void printf_num(int n, int *pCount, int *pLen, char buffer[], int *index)
 {
-	char *str;
+	char str[1024];
 	int i = 0, sign = 1;
 
-	str = (char *)malloc(sizeof(char) * 1024);
 
 	if (n < 0)
 	{
-		_putchar('-');
+		_putchar('-', buffer, index);
 		(*pLen)++;
 		sign = -1;
 	}
 	if (n == 0)
 	{
-		printf_char('0', pCount, pLen);
+		printf_char('0', pCount, pLen, buffer, index);
 		return;
 	}
 	while (n != 0)
@@ -33,10 +34,9 @@ void printf_num(int n, int *pCount, int *pLen)
 	str[i] = '\0';
 	while (i > 0)
 	{
-		_putchar(str[i - 1]);
+		_putchar(str[i - 1], buffer, index);
 		i--;
 	}
 	(*pCount)++;
 	(*pLen) += size(str);
-	free(str);
 }

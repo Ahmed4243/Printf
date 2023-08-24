@@ -43,9 +43,10 @@ int checker(char c1, char c2)
 
 int _printf(const char *format, ...)
 {
-	int n, count = 0;
+	int n, count = 0, index = 0;
 
 	va_list args;
+	char buffer[BUFF_SIZE];
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -55,27 +56,29 @@ int _printf(const char *format, ...)
 	for (n = 0; format[n] != '\0'; n++)
 	{
 		if (format[n] == '%' && format[n + 1] == 's')
-			printf_str(va_arg(args, char *), &n, &count);
+			printf_str(va_arg(args, char *), &n, &count, buffer, &index);
 		else if (format[n] == '%' && format[n + 1] == 'c')
-			printf_char(va_arg(args, int), &n, &count);
+			printf_char(va_arg(args, int), &n, &count, buffer, &index);
 		else if (format[n] == '%' && format[n + 1] == '%')
-			printf_char('%', &n, &count);
+			printf_char('%', &n, &count, buffer, &index);
 		else if (format[n] == '%' && format[n + 1] == '\0')
 			return (-1);
 		else if (format[n] == '%' && (format[n + 1] == 'd' || format[n + 1] == 'i'))
-			printf_num(va_arg(args, int), &n, &count);
+			printf_num(va_arg(args, int), &n, &count, buffer, &index);
 		else if (checker(format[n], format[n + 1]) == 1)
 		{
-			printf_char(format[n], &n, &count);
-			_putchar(format[n]);
+			printf_char(format[n], &n, &count, buffer, &index);
+			_putchar(format[n], buffer, &index);
 			count++;
 		}
 		else
 		{
+			_putchar(format[n], buffer, &index);
 			count++;
-			write(STDOUT_FILENO, &format[n], 1);
 		}
 	}
+	if (index == BUFF_SIZE || index > 0)
+		write(1, buffer, index);
 	va_end(args);
 	return (count);
 }

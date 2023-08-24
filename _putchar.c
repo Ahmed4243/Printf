@@ -3,11 +3,13 @@
 /**
  * _putchar - prints a character
  * @c: The character getting printed
- *
- * Return: 1 or -1
+ * @buffer: The buffer
+ * @index: The index
+ * Return: void
  */
 
-int _putchar(char c)
+void _putchar(char c, char buffer[], int *index)
 {
-	return (write(STDOUT_FILENO, &c, 1));
+	buffer[*index] = c;
+	(*index)++;
 }
