@@ -77,7 +77,9 @@ int _printf(const char *format, ...)
 			count++;
 		}
 	}
-	if (index == BUFF_SIZE || index > 0)
+	if (index == BUFF_SIZE)
+		write(1, buffer, BUFF_SIZE);
+	if (index > 0)
 		write(1, buffer, index);
 	va_end(args);
 	return (count);
