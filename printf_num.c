@@ -36,4 +36,5 @@ void printf_num(int n, int *pCount, int *pLen)
 	}
 	(*pCount)++;
 	(*pLen) += size(str);
+	fflush(stdout);
 }
