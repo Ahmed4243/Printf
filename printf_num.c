@@ -29,7 +29,7 @@ void printf_num(int n, int *pCount, int *pLen)
 		n /= 10;
 	}
 	while (i > 0)
-  {
+	{
 		_putchar(str[i - 1]);
 		i--;
 	}
